@@ -32,6 +32,9 @@ class User {
     @UpdateDateColumn({ name: 'updated_at' })
     updatedAt: Date;
 
+    @Column({ name: 'is_provider' })
+    isProvider: boolean;
+
     @Expose({ name: 'avatarURL' })
     getAvatarUrl(): string | null {
         return this.avatar

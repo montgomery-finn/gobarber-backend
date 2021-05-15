@@ -10,7 +10,7 @@ export default class UsersController {
         response: Response,
     ): Promise<Response> {
         try {
-            const { name, email, password } = request.body;
+            const { name, email, password, isProvider } = request.body;
 
             const createUserService = container.resolve(CreateUserService);
 
@@ -18,6 +18,7 @@ export default class UsersController {
                 name,
                 email,
                 password,
+                isProvider,
             });
 
             return response.json({ user: classToClass(user) });

@@ -18,6 +18,7 @@ export default class UsersRepository implements IUsersRepository {
             ? this.ormRepository.find({
                   where: {
                       id: Not(exceptUserId),
+                      isProvider: true,
                   },
               })
             : this.ormRepository.find();

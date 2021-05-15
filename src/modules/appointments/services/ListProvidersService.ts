@@ -3,6 +3,7 @@ import AppError from '@shared/errors/AppError';
 import IUsersRepository from '@modules/users/repositories/IUsersRepository';
 import User from '@modules/users/infra/typeorm/entities/User';
 import ICacheProvider from '@shared/container/providers/CacheProvider/models/ICacheProvider';
+import { classToClass } from 'class-transformer';
 
 interface IRequest {
     userId: string;
@@ -29,7 +30,7 @@ export default class UpdateProfileService {
 
             await this.cacheProvider.save(
                 `providers-list:${userId}`,
-                providers,
+                classToClass(providers),
             );
         }
 
