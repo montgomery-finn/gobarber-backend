@@ -19,9 +19,11 @@ export default class UpdateProfileService {
     ) {}
 
     public async execute({ userId }: IRequest): Promise<User[]> {
-        let providers = await this.cacheProvider.recover<User[]>(
-            `providers-list:${userId}`,
-        );
+        // let providers = await this.cacheProvider.recover<User[]>(
+        //     `providers-list:${userId}`,
+        // );
+
+        let providers;
 
         if (!providers) {
             providers = await this.usersRepository.findAllProviders({

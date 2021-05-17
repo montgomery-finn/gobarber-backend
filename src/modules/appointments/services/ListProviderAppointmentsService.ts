@@ -31,9 +31,9 @@ export default class ListProviderAppointmentsService {
 
         let appointments;
 
-        appointments = await this.cacheProvider.recover<Appointment[]>(
-            cacheKey,
-        );
+        // appointments = await this.cacheProvider.recover<Appointment[]>(
+        //     cacheKey,
+        // );
 
         if (!appointments) {
             appointments = await this.ormRepository.findAllInDayFromProvider({
