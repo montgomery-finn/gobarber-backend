@@ -25,13 +25,13 @@ describe('SendForgotPasswordEmail', () => {
         const sendMailMethod = jest.spyOn(fakeMailProvider, 'sendMail');
 
         await fakeUserRepository.create({
-            name: 'Vitor Klein',
-            email: 'vitor@klein.com',
+            name: 'jose silva',
+            email: 'jose@silva.com',
             password: '123',
         });
 
         await sendForgotPasswordEmailService.execute({
-            email: 'vitor@klein.com',
+            email: 'jose@silva.com',
         });
 
         expect(sendMailMethod).toHaveBeenCalled();
@@ -40,7 +40,7 @@ describe('SendForgotPasswordEmail', () => {
     it('should not be able to send password recover email to a non registered email', async () => {
         await expect(
             sendForgotPasswordEmailService.execute({
-                email: 'vitor@klein.com',
+                email: 'jose@silva.com',
             }),
         ).rejects.toBeInstanceOf(AppError);
     });
@@ -49,13 +49,13 @@ describe('SendForgotPasswordEmail', () => {
         const sendMailMethod = jest.spyOn(fakeMailProvider, 'sendMail');
 
         await fakeUserRepository.create({
-            name: 'Vitor Klein',
-            email: 'vitor@klein.com',
+            name: 'jose silva',
+            email: 'jose@silva.com',
             password: '123',
         });
 
         await sendForgotPasswordEmailService.execute({
-            email: 'vitor@klein.com',
+            email: 'jose@silva.com',
         });
 
         expect(sendMailMethod).toHaveBeenCalled();

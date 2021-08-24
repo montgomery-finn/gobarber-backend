@@ -23,8 +23,8 @@ beforeEach(() => {
 describe('ResetPasswordService', () => {
     it('should be able to reset password using hash', async () => {
         const user = await fakeUserRepository.create({
-            name: 'Vitor Klein',
-            email: 'vitor@klein.com',
+            name: 'jose silva',
+            email: 'jose@silva.com',
             password: '123',
         });
 
@@ -46,8 +46,8 @@ describe('ResetPasswordService', () => {
         const generateHashMethod = jest.spyOn(fakeHashProvider, 'generateHash');
 
         const user = await fakeUserRepository.create({
-            name: 'Vitor Klein',
-            email: 'vitor@klein.com',
+            name: 'jose silva',
+            email: 'jose@silva.com',
             password: '123',
         });
 
@@ -62,8 +62,8 @@ describe('ResetPasswordService', () => {
 
     it('should not be able to reset password with inexisting token', async () => {
         const user = await fakeUserRepository.create({
-            name: 'Vitor Klein',
-            email: 'vitor@klein.com',
+            name: 'jose silva',
+            email: 'jose@silva.com',
             password: '123',
         });
 
@@ -85,8 +85,8 @@ describe('ResetPasswordService', () => {
 
     it('should not be able to reset password after 2 hours from token generation', async () => {
         const user = await fakeUserRepository.create({
-            name: 'Vitor Klein',
-            email: 'vitor@klein.com',
+            name: 'jose silva',
+            email: 'jose@silva.com',
             password: '123',
         });
 

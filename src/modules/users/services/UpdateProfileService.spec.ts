@@ -21,16 +21,16 @@ describe('UpdateProfileService', () => {
         expect(
             updateProfileService.execute({
                 userId: '5464',
-                name: 'Vitorina Klein',
-                email: 'vitorina@klein.com',
+                name: 'joseia silva',
+                email: 'joseia@silva.com',
             }),
         ).rejects.toBeInstanceOf(AppError);
     });
 
     it('should be able to update name and email', async () => {
         const user = await fakeUsersRepository.create({
-            name: 'Vitor Klein',
-            email: 'vitor@klein.com',
+            name: 'jose silva',
+            email: 'jose@silva.com',
             password: '123',
         });
 
@@ -38,12 +38,12 @@ describe('UpdateProfileService', () => {
 
         const updatedUser = await updateProfileService.execute({
             userId: user.id,
-            name: 'Vitorina Klein',
-            email: 'vitorina@klein.com',
+            name: 'joseia silva',
+            email: 'joseia@silva.com',
         });
 
-        expect(updatedUser.name).toBe('Vitorina Klein');
-        expect(updatedUser.email).toBe('vitorina@klein.com');
+        expect(updatedUser.name).toBe('joseia silva');
+        expect(updatedUser.email).toBe('joseia@silva.com');
         expect(saveMethod).toHaveBeenCalled();
     });
 
@@ -55,15 +55,15 @@ describe('UpdateProfileService', () => {
         });
 
         const user = await fakeUsersRepository.create({
-            name: 'Vitor Klein',
-            email: 'vitor@klein.com',
+            name: 'jose silva',
+            email: 'jose@silva.com',
             password: '123',
         });
 
         await expect(
             updateProfileService.execute({
                 userId: user.id,
-                name: 'Vitorina Klein',
+                name: 'joseia silva',
                 email: 'admin@admin.com',
             }),
         ).rejects.toBeInstanceOf(AppError);
@@ -71,8 +71,8 @@ describe('UpdateProfileService', () => {
 
     it('should be able to update the password', async () => {
         const user = await fakeUsersRepository.create({
-            name: 'Vitor Klein',
-            email: 'vitor@klein.com',
+            name: 'jose silva',
+            email: 'jose@silva.com',
             password: '123',
         });
 
@@ -81,8 +81,8 @@ describe('UpdateProfileService', () => {
 
         const updatedUser = await updateProfileService.execute({
             userId: user.id,
-            name: 'Vitor Klein',
-            email: 'vitor@klein.com',
+            name: 'jose silva',
+            email: 'jose@silva.com',
             password: '456',
             oldPassword: '123',
         });
@@ -99,16 +99,16 @@ describe('UpdateProfileService', () => {
 
     it('should not be able to update password without old password', async () => {
         const user = await fakeUsersRepository.create({
-            name: 'Vitor Klein',
-            email: 'vitor@klein.com',
+            name: 'jose silva',
+            email: 'jose@silva.com',
             password: '123',
         });
 
         await expect(
             updateProfileService.execute({
                 userId: user.id,
-                name: 'Vitor Klein',
-                email: 'vitor@klein.com',
+                name: 'jose silva',
+                email: 'jose@silva.com',
                 password: '456',
             }),
         ).rejects.toBeInstanceOf(AppError);
@@ -116,16 +116,16 @@ describe('UpdateProfileService', () => {
 
     it('should not be able to update the password with wrong old password', async () => {
         const user = await fakeUsersRepository.create({
-            name: 'Vitor Klein',
-            email: 'vitor@klein.com',
+            name: 'jose silva',
+            email: 'jose@silva.com',
             password: '123',
         });
 
         await expect(
             updateProfileService.execute({
                 userId: user.id,
-                name: 'Vitor Klein',
-                email: 'vitor@klein.com',
+                name: 'jose silva',
+                email: 'jose@silva.com',
                 password: '456',
                 oldPassword: '456',
             }),

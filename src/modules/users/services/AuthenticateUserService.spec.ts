@@ -29,15 +29,15 @@ describe('AuthenticateUser', () => {
 
     it('should be able to authenticate', async () => {
         const user = await createUserService.Execute({
-            name: 'Vitor Klein',
-            email: 'vitor@klein.com',
+            name: 'jose silva',
+            email: 'jose@silva.com',
             password: '123',
         });
 
         expect(user).toHaveProperty('id');
 
         const response = await authenticateUserService.execute({
-            email: 'vitor@klein.com',
+            email: 'jose@silva.com',
             password: '123',
         });
 
@@ -47,7 +47,7 @@ describe('AuthenticateUser', () => {
     it('should not be able to authenticate with worng email', async () => {
         await expect(
             authenticateUserService.execute({
-                email: 'vitor@klein.com',
+                email: 'jose@silva.com',
                 password: '123',
             }),
         ).rejects.toBeInstanceOf(AppError);
@@ -55,14 +55,14 @@ describe('AuthenticateUser', () => {
 
     it('should not be able to autheticate with wrong password', async () => {
         const user = await createUserService.Execute({
-            name: 'Vitor Klein',
-            email: 'vitor@klein.com',
+            name: 'jose silva',
+            email: 'jose@silva.com',
             password: '123',
         });
 
         await expect(
             authenticateUserService.execute({
-                email: 'vitor@klein.com',
+                email: 'jose@silva.com',
                 password: '456',
             }),
         ).rejects.toBeInstanceOf(AppError);

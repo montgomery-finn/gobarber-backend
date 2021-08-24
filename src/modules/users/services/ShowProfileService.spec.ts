@@ -22,8 +22,8 @@ describe('UpdateProfileService', () => {
 
     it('should be able to show user', async () => {
         const user = await fakeUsersRepository.create({
-            name: 'Vitor Klein',
-            email: 'vitor@klein.com',
+            name: 'jose silva',
+            email: 'jose@silva.com',
             password: '123',
         });
 
@@ -31,7 +31,7 @@ describe('UpdateProfileService', () => {
             userId: user.id,
         });
 
-        expect(showUser.name).toBe('Vitor Klein');
-        expect(showUser.email).toBe('vitor@klein.com');
+        expect(showUser.name).toBe('jose silva');
+        expect(showUser.email).toBe('jose@silva.com');
     });
 });
